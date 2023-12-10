@@ -1,0 +1,29 @@
+create database token_task;
+
+use token_task;
+
+create table themas(
+id int primary key auto_increment,
+`name` text
+);
+
+create table type_tasks(
+id int primary key auto_increment,
+`name` text
+);
+
+create table tasks(
+id int primary key auto_increment,
+`name` text
+);
+
+create table tokens(
+id int primary key auto_increment,
+themas_id int,
+tasks_id int,
+type_tasks_id int,
+
+foreign key (themas_id) references themas (id),
+foreign key (tasks_id) references tasks (id),
+foreign key (type_tasks_id) references type_tasks (id)
+);
